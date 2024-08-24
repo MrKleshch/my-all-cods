@@ -1,32 +1,27 @@
 ﻿#include <iostream>
-#include <vector>
-#include <unordered_map>
+#include <stack>
+#include <string>
 using namespace std;
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    vector<int> trees(n);
+    string input; getline(cin, input);
 
-    for (int i = 0; i < n; ++i) cin >> trees[i];
+    stack<long long> st;
 
-    unordered_map<int, int> count;
-    int unique = 0, l = 0, minLength = n + 1, minL = 0, minR = 0;
-
-    for (int r = 0; r < n; ++r) {
-        if (++count[trees[r]] == 1) ++unique;
-
-        while (unique == k) {
-            if (r - l + 1 < minLength) {
-                minLength = r - l + 1;
-                minL = l;
-                minR = r;
+    for (char ch : input) {
+        if (ch != ' ') {
+            if (isdigit(ch)) st.push(ch - '0');
+            else {
+                long long b = st.top(); st.pop();
+                long long a = st.top(); st.pop();
+                if (ch == '+') st.push(a + b);
+                else if (ch == '-') st.push(a - b);
+                else if (ch == '*') st.push(a * b);
             }
-            if (--count[trees[l]] == 0) --unique;
-            ++l;
+            
         }
     }
 
-    cout << minL + 1 << " " << minR + 1;
+    cout << st.top();
     return 0;
 }
