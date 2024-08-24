@@ -1,29 +1,32 @@
 ﻿#include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 int main() {
-    int n; cin >> n;
-    vector<int> N(n);
-    for (int i = 0; i < n; ++i) cin >> N[i];
+    int n, k;
+    cin >> n >> k;
+    vector<int> trees(n);
 
-    int m; cin >> m;
-    vector<int> M(m);
-    for (int i = 0; i < m; ++i) cin >> M[i];
+    for (int i = 0; i < n; ++i) cin >> trees[i];
 
-    int i = 0, j = 0;
-    int nbest = 0, mbest = 0;
+    unordered_map<int, int> count;
+    int unique = 0, l = 0, minLength = n + 1, minL = 0, minR = 0;
 
-    while (i < n && j < m) {
-        if (abs(N[i] - M[j]) < abs(N[nbest] - M[mbest])) {
-            nbest = i;
-            mbest = j;
+    for (int r = 0; r < n; ++r) {
+        if (++count[trees[r]] == 1) ++unique;
+
+        while (unique == k) {
+            if (r - l + 1 < minLength) {
+                minLength = r - l + 1;
+                minL = l;
+                minR = r;
+            }
+            if (--count[trees[l]] == 0) --unique;
+            ++l;
         }
-        if (N[i] > M[j]) ++j;
-        else if (N[i] < M[j]) ++i;
-        else break;
     }
 
-    cout << N[nbest] << " " << M[mbest];
+    cout << minL + 1 << " " << minR + 1;
     return 0;
 }
