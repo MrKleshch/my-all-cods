@@ -1,87 +1,112 @@
 ﻿#include <iostream>
-#include <stack>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-class Queue {
+class Deque {
 private:
-    stack<int> stack_in, stack_out;
-    stack<int> min_in, min_out;
+    vector<int> array;
+    int head, tail, capacity, count;
 
-    void transfer() {
-        while (!stack_in.empty()) {
-            int elem = stack_in.top();
-            stack_in.pop();
-            stack_out.push(elem);
-
-            if (min_out.empty() || elem < min_out.top()) {
-                min_out.push(elem);
-            }
-            else {
-                min_out.push(min_out.top());
-            }
-        }
-        while (!min_in.empty()) min_in.pop();
+    void resize() {
+        vector<int> newData(capacity * 2);
+        for (int i = 0; i < count; ++i) newData[i] = array[(head + i) % capacity];
+        array = newData;
+        head = 0;
+        tail = count;
+        capacity *= 2;
     }
 
 public:
-    void push(int n) {
-        stack_in.push(n);
-        if (min_in.empty() || n < min_in.top()) {
-            min_in.push(n);
+    Deque(int cap = 4) : array(cap), head(0), tail(0), capacity(cap), count(0) {}
+
+    string push_front(int n) {
+        if (count == capacity) {
+            resize();
         }
-        else {
-            min_in.push(min_in.top());
-        }
+        head = (head - 1 + capacity) % capacity;
+        array[head] = n;
+        ++count;
+        return "ok";
     }
 
-    int pop() {
-        if (stack_out.empty()) {
-            if (stack_in.empty()) return -1;
-            transfer();
+    string push_back(int n) {
+        if (count == capacity) {
+            resize();
         }
-        int front = stack_out.top();
-        stack_out.pop();
-        min_out.pop();
-        return front;
+        array[tail] = n;
+        tail = (tail + 1) % capacity;
+        ++count;
+        return "ok";
     }
 
-    int get_min() {
-        if (stack_out.empty() && stack_in.empty()) {
-            return -1;
-        }
-        else if (stack_out.empty()) {
-            return min_in.top();
-        }
-        else if (stack_in.empty()) {
-            return min_out.top();
-        }
-        else {
-            return min(min_in.top(), min_out.top());
-        }
+    string pop_front() {
+        if (count == 0) return "error";
+        int result = array[head];
+        head = (head + 1) % capacity;
+        --count;
+        return to_string(result);
+    }
+
+    string pop_back() {
+        if (count == 0) return "error";
+        tail = (tail - 1 + capacity) % capacity;
+        int result = array[tail];
+        --count;
+        return to_string(result);
+    }
+
+    string front() {
+        if (count == 0) return "error";
+        return to_string(array[head]);
+    }
+
+    string back() {
+        if (count == 0) return "error";
+        int last = (tail - 1 + capacity) % capacity;
+        return to_string(array[last]);
+    }
+
+    string size() {
+        return to_string(count);
+    }
+
+    string clear() {
+        head = tail = count = 0;
+        return "ok";
+    }
+
+    string exit() {
+        return "bye";
     }
 };
 
 int main() {
-    int n;
-    cin >> n;
-    Queue queue;
-    vector<int> results;
+    Deque deque;
+    string command;
 
-    for (int i = 0; i < n; ++i) {
-        int a;
-        cin >> a;
-        if (a > 0) queue.push(a);
-        else if (a == 0) {
-            results.push_back(queue.get_min());
-            queue.pop();
+    while (true) {
+        getline(cin, command);
+
+        if (command.substr(0, 10) == "push_front") {
+            int n = stoi(command.substr(11));
+            cout << deque.push_front(n) << endl;
+        }
+        else if (command.substr(0, 9) == "push_back") {
+            int n = stoi(command.substr(10));
+            cout << deque.push_back(n) << endl;
+        }
+        else if (command == "pop_front") cout << deque.pop_front() << endl;
+        else if (command == "pop_back") cout << deque.pop_back() << endl;
+        else if (command == "front")cout << deque.front() << endl;
+        else if (command == "back") cout << deque.back() << endl;
+        else if (command == "size") cout << deque.size() << endl;
+        else if (command == "clear") cout << deque.clear() << endl;
+        else if (command == "exit") {
+            cout << deque.exit();
+            break;
         }
     }
-
-    for (int result : results) {
-        cout << result << endl;
-    }
-
     return 0;
 }
