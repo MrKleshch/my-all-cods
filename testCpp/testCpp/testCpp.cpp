@@ -1,48 +1,64 @@
 ﻿#include <iostream>
 #include <stack>
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
-class MinQueue {
-    stack<int> s1, s2;
-    stack<int> minS1, minS2;
+class Queue {
+private:
+    stack<int> stack_in, stack_out;
+    stack<int> min_in, min_out;
+
+    void transfer() {
+        while (!stack_in.empty()) {
+            int elem = stack_in.top();
+            stack_in.pop();
+            stack_out.push(elem);
+
+            if (min_out.empty() || elem < min_out.top()) {
+                min_out.push(elem);
+            }
+            else {
+                min_out.push(min_out.top());
+            }
+        }
+        while (!min_in.empty()) min_in.pop();
+    }
 
 public:
-    void push(int x) {
-        s1.push(x);
-        if (minS1.empty() || x <= minS1.top()) {
-            minS1.push(x);
+    void push(int n) {
+        stack_in.push(n);
+        if (min_in.empty() || n < min_in.top()) {
+            min_in.push(n);
+        }
+        else {
+            min_in.push(min_in.top());
         }
     }
 
-    void pop() {
-        if (s2.empty()) {
-            while (!s1.empty()) {
-                int x = s1.top();
-                s1.pop();
-
-                if (!minS1.empty() && x == minS1.top()) {
-                    minS1.pop();
-                }
-
-                s2.push(x);
-                if (minS2.empty() || x <= minS2.top()) {
-                    minS2.push(x);
-                }
-            }
+    int pop() {
+        if (stack_out.empty()) {
+            if (stack_in.empty()) return -1;
+            transfer();
         }
+        int front = stack_out.top();
+        stack_out.pop();
+        min_out.pop();
+        return front;
+    }
 
-        if (!s2.empty()) {
-            int x = s2.top();
-            s2.pop();
-            if (!minS2.empty() && x == minS2.top()) {
-                minS2.pop();
-            }
-            cout << (minS2.empty() ? (minS1.empty() ? -1 : minS1.top()) : (minS1.empty() ? minS2.top() : min(minS1.top(), minS2.top()))) << endl;
+    int get_min() {
+        if (stack_out.empty() && stack_in.empty()) {
+            return -1;
+        }
+        else if (stack_out.empty()) {
+            return min_in.top();
+        }
+        else if (stack_in.empty()) {
+            return min_out.top();
         }
         else {
-            cout << -1 << endl;
+            return min(min_in.top(), min_out.top());
         }
     }
 };
@@ -50,16 +66,22 @@ public:
 int main() {
     int n;
     cin >> n;
-    MinQueue q;
+    Queue queue;
+    vector<int> results;
+
     for (int i = 0; i < n; ++i) {
         int a;
         cin >> a;
-        if (a > 0) {
-            q.push(a);
-        }
+        if (a > 0) queue.push(a);
         else if (a == 0) {
-            q.pop();
+            results.push_back(queue.get_min());
+            queue.pop();
         }
     }
+
+    for (int result : results) {
+        cout << result << endl;
+    }
+
     return 0;
 }
