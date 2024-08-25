@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\",
+  "WorkspaceRootPath": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|solutionrelative:testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "testCpp.cpp",
-              "DocumentMoniker": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
+              "DocumentMoniker": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
               "RelativeDocumentMoniker": "testCpp\\testCpp.cpp",
-              "ToolTip": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp*",
+              "ToolTip": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp*",
               "RelativeToolTip": "testCpp\\testCpp.cpp*",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-10T18:07:53.67Z",
               "EditorCaption": ""
