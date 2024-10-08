@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\",
+  "WorkspaceRootPath": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4AB30EBB-E208-4D02-A0E2-54E2734BF204}|testCpp\\testCpp.vcxproj|solutionrelative:testCpp\\testCpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\output.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:testCpp\\output.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:testCpp\\input.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,20 +21,52 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 1952,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "testCpp.cpp",
-              "DocumentMoniker": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
+              "DocumentMoniker": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
               "RelativeDocumentMoniker": "testCpp\\testCpp.cpp",
-              "ToolTip": "C:\\Users\\mrkleshch\\Desktop\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
+              "ToolTip": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\testCpp.cpp",
               "RelativeToolTip": "testCpp\\testCpp.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-10T18:07:53.67Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 921,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "input.txt",
+              "DocumentMoniker": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\input.txt",
+              "RelativeDocumentMoniker": "testCpp\\input.txt",
+              "ToolTip": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\input.txt",
+              "RelativeToolTip": "testCpp\\input.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-08T14:42:28.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "output.txt",
+              "DocumentMoniker": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\output.txt",
+              "RelativeDocumentMoniker": "testCpp\\output.txt",
+              "ToolTip": "D:\\Personal Papka\\github\\my-all-cods\\testCpp\\testCpp\\output.txt",
+              "RelativeToolTip": "testCpp\\output.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-08T14:42:28.989Z",
               "EditorCaption": ""
             }
           ]

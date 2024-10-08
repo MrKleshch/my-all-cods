@@ -1,23 +1,43 @@
 ﻿#include <iostream>
-#include <map>
 #include <vector>
-#include <string>
+#include <fstream>
 
 using namespace std;
 
+void dfs(int v, vector<vector<int>>& graph, vector<int>& visited, int color) {
+    visited[v] = color;
+    for (int to : graph[v]) {
+        if (visited[to] == 0) {
+            dfs(to, graph, visited, color);
+        }
+    }
+}
+
 int main() {
-    int n, m; cin >> n >> m;
+    ifstream in;  // для чтения данных
+    ofstream out; // для записи данных
+    in.open("input.txt");
+    out.open("output.txt");
 
-    map<string, int> words;
-
-    int team; string word;
-    for (int i = 0; i < m; ++i) {
-        cin >> team >> word;
-        words[word] = team;
+    int vertex, edge; in >> vertex >> edge;
+    vector<vector<int>> graph(vertex);
+    vector<int> visited(vertex, 0);
+    for (int i = 0; i < edge; ++i) {
+        int a, b; in >> a >> b;
+        graph[--a].push_back(--b);
+        graph[b].push_back(a);
     }
 
-    vector<int> wins(n, 0);
-    for (const auto& elem : words) ++wins[elem.second - 1];
-    for (int elem : wins) cout << elem << " ";
-    return 0;
+    int color = 1;
+    for (int i = 0; i < vertex; ++i) {
+        if (visited[i] == 0) {
+            dfs(i, graph, visited, color++);
+        }
+    }
+
+    for (int i : visited) out << i << " ";
+
+    in.close();
+    out.close();
+
 }
