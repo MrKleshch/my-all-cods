@@ -1,23 +1,25 @@
 ﻿#include <iostream>
-#include <map>
-#include <vector>
-#include <string>
-
 using namespace std;
 
 int main() {
-    int n, m; cin >> n >> m;
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	
+	long long n, x, y; cin >> n >> x >> y;
+	long long time = min(x, y); n--;
+	if (n < 1) {
+		cout << time;
+		return 0;
+	}
 
-    map<string, int> words;
+	long long l = min(x, y), r = max(x, y) * n;
 
-    int team; string word;
-    for (int i = 0; i < m; ++i) {
-        cin >> team >> word;
-        words[word] = team;
-    }
+	while (l + 1 < r) {
+		long long mid = (l + r) / 2;
+		if (mid/x + mid/y < n) l = mid;
+		r = mid;
+	}
+	cout << r + time;
 
-    vector<int> wins(n, 0);
-    for (const auto& elem : words) ++wins[elem.second - 1];
-    for (int elem : wins) cout << elem << " ";
-    return 0;
+	return 0;
 }
