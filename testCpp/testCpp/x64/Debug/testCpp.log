@@ -1,2 +1,3 @@
 ﻿  testCpp.cpp
-  testCpp.vcxproj -> D:\Personal Papka\github\my-all-cods\testCpp\x64\Debug\testCpp.exe
+  LINK : не найден или не выполнена сборка D:\personal\github\my-all-cods\testCpp\x64\Debug\testCpp.exe при последней инкрементной компоновке; выполняется полная компоновка
+  testCpp.vcxproj -> D:\personal\github\my-all-cods\testCpp\x64\Debug\testCpp.exe
